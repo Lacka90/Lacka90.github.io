@@ -1,0 +1,13 @@
+.cv-block {
+  
+  &-content {
+    position: relative;
+    padding-left: 40px;
+
+    &-icon {
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+  }
+}

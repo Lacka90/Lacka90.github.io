@@ -1,0 +1,36 @@
+.header {
+  background-color: #1E88E5;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+
+  &-top-block {
+    position: absolute;
+    background-color: #37474F;
+    height: 52%;
+    width: 100%;
+  }
+
+  &-text {
+    @media only screen and (max-width: 767px) {
+      text-align: center
+    }
+  }
+
+  &-row {
+    top: 75%;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 100%;
+  }
+
+  &-avatar-block {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+    overflow: hidden;
+    background-size: cover;
+    background-image: url(/assets/avatar.png);
+    box-shadow: black inset 0px 0px 5px;
+  }
+}
+
