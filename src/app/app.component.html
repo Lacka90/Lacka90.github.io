@@ -1,11 +1,29 @@
 <div class="container-fluid">
   <app-header></app-header>
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-4 blue-bg">
-        <app-side-info></app-side-info>
+    <div class="row rounded content-body bg-white shadow mb-3 py-3">
+      <div class="col-12">
+        <app-profile-picture></app-profile-picture>
       </div>
-      <div class="col-12 col-md-8">
+      <div class="col-12 text-center mt-4">
+        <h3>
+          Laszlo Csele - Lacka
+        </h3>
+        <h5 class="text-muted">Front-end Developer</h5>
+
+        <h4 class="mt-4">
+            <a href="https://www.linkedin.com/in/l%C3%A1szl%C3%B3-csele-008754a5/"><i class="fab fa-linkedin px-3"></i></a>
+            <a href="https://github.com/Lacka90"><i class="fab fa-github px-3"></i></a>
+        </h4>
+      </div>
+      <div class="col-12 col-sm-6 offset-sm-3 text-center mt-4">
+        <!-- <app-side-info></app-side-info> -->
+        <p>
+          I'm Lacka, a {{ age }} year old front-end developer from Hungary.
+          I'm a huge enthusiast of Typescript, Angular and other web technologies.
+        </p>
+      </div>
+      <div class="col-12 text-center">
         <app-cv-content></app-cv-content>
       </div>
     </div>

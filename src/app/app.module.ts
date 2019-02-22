@@ -8,6 +8,7 @@ import { CvContentComponent } from './components/cv-content/cv-content.component
 import { SkillComponent } from './components/side-info/skill/skill.component';
 import { CvBlockComponent } from './components/cv-content/cv-block/cv-block.component';
 import { WorkRowComponent } from './components/cv-content/work-row/work-row.component';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { WorkRowComponent } from './components/cv-content/work-row/work-row.comp
     CvContentComponent,
     SkillComponent,
     CvBlockComponent,
-    WorkRowComponent
+    WorkRowComponent,
+    ProfilePictureComponent,
   ],
   imports: [
     BrowserModule

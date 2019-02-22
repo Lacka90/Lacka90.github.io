@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Lacka90-cv-app';
+
+  age = new Date().getFullYear() - 1990;
 }
