@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 import { SideInfoComponent } from './components/side-info/side-info.component';
+import { ConfigService } from './services/config.service';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { SideInfoComponent } from './components/side-info/side-info.component';
     ProfileDetailsComponent,
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [ConfigService, FirebaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -40,9 +40,9 @@
   </app-cv-block>
 </div>
 
-<div class="mt-5">
+<div class="mt-5" [hidden]="!allowMap">
   <app-cv-block icon="fa-maps">
-    <h4>Visitors</h4>
+    <h4>Visitors <span *ngIf="locations$ | async as loc">{{loc.length ? loc.length : ''}}</span></h4>
     <div id="map" class="map"></div>
   </app-cv-block>
 </div>
