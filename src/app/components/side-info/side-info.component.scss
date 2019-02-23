@@ -1,31 +1,14 @@
-.info {
-  // background-color: #1E88E5;
-  // color: white;
+.side-info {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  width: 180px;
 
-  &:not(:last-child) {
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+  & .blue-text {
+    color: #1E88E5;
   }
 
-  &-content {
-    position: relative;
-    padding-left: 40px;
-
-    &:not(:last-child) {
-      padding-bottom: 15px;
-    }
-
-    & > a {
-      color: white !important;
-    }
-
-    &-icon {
-      position: absolute;
-      left: 0;
-      top: 6px;
-    }
-
-    & > div:not(:last-child) {
-      padding-bottom: 15px;
-    }
+  & .golden {
+    color: gold;
   }
 }

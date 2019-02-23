@@ -1,39 +1,12 @@
-<div class="row p-3 info">
-  <div class="col-12">
-    <div class="info-content">
-      <i class="info-content-icon fas fa-user"></i>
-      <div>
-        I'm Lacka, a {{ age }} year old front-end developer from Hungary.
-      </div>
-      <div>
-        I'm a huge enthusiast of Typescript, Angular and other web technologies.
-      </div>
-    </div>
-  </div>
-</div>
+<div class="side-info d-none d-md-block">
+  <div class="info-content">
+    <h5 class="px-3">Skills</h5>
 
-<div class="row p-3 info">
-  <div class="col-12">
-    <div class="info-content">
-      <i class="info-content-icon fas fa-envelope"></i>
-      <a href="mailto:lacka@codingsans.com">lacka@codingsans.com</a>
-    </div>
-    <div class="info-content">
-      <i class="info-content-icon fab fa-linkedin"></i>
-      <a href="https://www.linkedin.com/in/l%C3%A1szl%C3%B3-csele-008754a5/">Laszlo Csele</a>
-    </div>
-  </div>
-</div>
-
-<div class="row p-3 info">
-  <div class="col-12">
-    <div class="info-content">
-      <i class="info-content-icon fas fa-clipboard-list"></i>
-      <h4>Professional Skills</h4>
-      <app-skill name="TypeScript" [value]="90"></app-skill>
-      <app-skill name="Javascript" [value]="80"></app-skill>
-      <app-skill name="HTML & CSS" [value]="75"></app-skill>
-      <app-skill name="Node JS" [value]="85"></app-skill>
-    </div>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let skill of skills" class="list-group-item border-0 px-3 py-1 d-flex justify-content-between align-items-center">
+        <i class="{{ skill.value > 0.8 ? 'fas' : 'far' }} fa-star golden"></i>{{ skill.name }}
+        <span class="blue-text font-weight-bold">{{ skill.value | percent }}</span>
+      </li>
+    </ul>
   </div>
 </div>
