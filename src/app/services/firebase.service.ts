@@ -29,12 +29,9 @@ export class FirebaseService {
   }
 
   getLocations() {
-    const date = new Date();
-    date.setHours(0);
-    date.setMinutes(0);
-    date.setSeconds(0);
-    date.setMilliseconds(0);
-    this.visitorsCollection.where('date', '>=', date).onSnapshot(snapshot => {
+    const date = new Date().getTime();
+    const beforeOneDay = new Date(date - 86400000);
+    this.visitorsCollection.where('date', '>=', beforeOneDay).onSnapshot(snapshot => {
       const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
       this.locations$.next(docs);
     });
