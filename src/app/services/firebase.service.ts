@@ -6,7 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class FirebaseService {
-  selfId: string;
   firestore: firebase.firestore.Firestore;
   visitorsCollection: firebase.firestore.CollectionReference;
   locations$ = new BehaviorSubject([]);
@@ -14,33 +13,25 @@ export class FirebaseService {
     this.initApp();
     this.firestore = firebase.firestore();
     this.visitorsCollection = this.firestore.collection('visitors');
-
-    window.onbeforeunload = () => {
-      this.removeLocation(this.selfId);
-      setTimeout(() => {
-        console.log('hey');
-      }, 2000);
-    };
   }
 
   addLocation(coords: Coordinates) {
-    this.visitorsCollection
-      .add({
-        altitude: coords.altitude,
-        longitude: coords.longitude,
-        latitude: coords.latitude,
-        accuracy: coords.accuracy,
-      })
-      .then(res => {
-        this.selfId = res.id;
-      });
+    this.visitorsCollection.add({
+      altitude: coords.altitude,
+      longitude: coords.longitude,
+      latitude: coords.latitude,
+      accuracy: coords.accuracy,
+      date: new Date(),
+    });
   }
   removeLocation(id: string) {
     this.visitorsCollection.doc(id).delete();
   }
 
   getLocations() {
-    this.visitorsCollection.onSnapshot(snapshot => {
+    const date = new Date().getTime();
+    const beforeOneDay = new Date(date - 86400000);
+    this.visitorsCollection.where('date', '>=', beforeOneDay).onSnapshot(snapshot => {
       const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
       this.locations$.next(docs);
     });
