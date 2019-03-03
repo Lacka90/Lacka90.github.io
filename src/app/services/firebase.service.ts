@@ -3,6 +3,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { ConfigService } from './config.service';
 import { BehaviorSubject } from 'rxjs';
+import * as fp from 'fingerprintjs2';
 
 @Injectable()
 export class FirebaseService {
@@ -16,12 +17,16 @@ export class FirebaseService {
   }
 
   addLocation(coords: Coordinates) {
-    this.visitorsCollection.add({
-      altitude: coords.altitude,
-      longitude: coords.longitude,
-      latitude: coords.latitude,
-      accuracy: coords.accuracy,
-      date: new Date(),
+    fp.get(components => {
+      const values = components.map(component => component.value);
+      const murmur = fp.x64hash128(values.join(''), 31);
+
+      this.visitorsCollection.doc(murmur).set({
+        longitude: coords.longitude,
+        latitude: coords.latitude,
+        accuracy: coords.accuracy,
+        date: new Date(),
+      });
     });
   }
   removeLocation(id: string) {
