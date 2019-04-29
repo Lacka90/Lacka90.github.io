@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-side-info',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-info.component.scss'],
 })
 export class SideInfoComponent {
+  visitors$ = this.firebaseService.visitors;
   skills = [
     { name: 'Angular', value: 0.9 },
     { name: 'TypeScript', value: 0.9 },
@@ -14,4 +16,6 @@ export class SideInfoComponent {
     { name: 'React', value: 0.7 },
     { name: 'VueJs', value: 0.6 },
   ];
+
+  constructor(private firebaseService: FirebaseService) {}
 }
