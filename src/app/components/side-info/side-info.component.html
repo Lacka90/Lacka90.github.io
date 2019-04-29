@@ -3,10 +3,13 @@
     <h5 class="px-3">Skills</h5>
 
     <ul class="list-group list-group-flush">
-      <li *ngFor="let skill of skills" class="list-group-item border-0 px-3 py-1 d-flex justify-content-between align-items-center">
+      <li *ngFor="let skill of skills"
+        class="list-group-item border-0 px-3 py-1 d-flex justify-content-between align-items-center">
         <i class="{{ skill.value > 0.8 ? 'fas' : 'far' }} fa-star golden"></i>{{ skill.name }}
         <span class="blue-text font-weight-bold">{{ skill.value | percent }}</span>
       </li>
     </ul>
+
+    <h6 class="px-3 pt-4" *ngIf="visitors$ | async as visitors">Visitors ({{ visitors }})</h6>
   </div>
 </div>
